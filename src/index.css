@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy: #011633;
+    --orange: #FE5000;
+    --white: #FFFFFF;
+    --light-grey: #F8F8F8;
+    --dark-navy: #062C50;
+    --soft-grey: #ECECEC;
+    --text-grey: #D1D1D1;
+    --muted-grey: #777777;
+    --nav-grey: #656565;
+    --mid-grey: #979797;
+    --border-grey: #D8D8D8;
+
+    --radius: 0.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    color: var(--navy);
+    background: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--orange);
+    color: var(--white);
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-[70px] md:py-[110px];
+  }
+
+  .content-max {
+    @apply max-w-[1280px] mx-auto px-6 md:px-10;
+  }
+
+  .text-display-xl {
+    font-size: 77px;
+    line-height: 1em;
+    font-weight: 700;
+  }
+
+  .text-display-lg {
+    font-size: 57px;
+    line-height: 1em;
+    font-weight: 700;
+  }
+
+  .text-display-md {
+    font-size: 47px;
+    line-height: 1em;
+    font-weight: 700;
+  }
+
+  .text-display-sm {
+    font-size: 37px;
+    line-height: 1em;
+    font-weight: 600;
+  }
+
+  .text-heading-lg {
+    font-size: 27px;
+    line-height: 1.4em;
+    font-weight: 600;
+  }
+
+  .text-heading-md {
+    font-size: 21px;
+    line-height: 1.4em;
+    font-weight: 600;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-[17px] rounded-full font-semibold text-[15px] uppercase tracking-wide transition-all duration-300;
+    background: var(--orange);
+    color: var(--navy);
+  }
+
+  .btn-primary:hover {
+    background: #cb4000;
+    transform: scale(1.02);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-[15px] rounded-full font-semibold text-[15px] uppercase tracking-wide border-2 transition-all duration-300;
+    border-color: currentColor;
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: currentColor;
+  }
+
+  .text-link {
+    @apply relative inline-block font-semibold text-[15px] uppercase tracking-wide;
+  }
+
+  .text-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-[1px] transition-all duration-500;
+    background: currentColor;
+  }
+
+  .text-link:hover::after {
+    @apply w-full;
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+  }
+
+  .navy-fade-bottom {
+    background: linear-gradient(180deg, rgba(1,22,51,0), #011633);
+  }
+
+  .white-fade-bottom {
+    background: linear-gradient(180deg, hsla(0,0%,100%,0), #fff);
+  }
+
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .animate-scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .animate-scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-1 { transition-delay: 0.1s; }
+  .stagger-2 { transition-delay: 0.2s; }
+  .stagger-3 { transition-delay: 0.3s; }
+  .stagger-4 { transition-delay: 0.4s; }
+  .stagger-5 { transition-delay: 0.5s; }
+  .stagger-6 { transition-delay: 0.6s; }
+}
+
+@media (max-width: 768px) {
+  .text-display-xl { font-size: 39px; }
+  .text-display-lg { font-size: 38px; }
+  .text-display-md { font-size: 38px; }
+  .text-display-sm { font-size: 31px; }
+  .text-heading-lg { font-size: 24px; }
+}
